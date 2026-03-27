@@ -93,7 +93,7 @@ Puppet::Type.newtype(:pg_hba) do
           [ :user ],
           [ :database ],
           [ :target ],
-        ]
+        ],
       ],
       [
         /^(local)\s+to\s+(\S+)\s+on\s+(\S+)$/,
@@ -101,7 +101,7 @@ Puppet::Type.newtype(:pg_hba) do
           [ :type ],
           [ :user ],
           [ :database ],
-        ]
+        ],
       ],
       [
         /^(host\S*)\s+to\s+(\S+)\s+on\s+(\S+)\s+from\s+(\S+)\s+in\s+(.*)$/,
@@ -110,8 +110,8 @@ Puppet::Type.newtype(:pg_hba) do
           [ :user ],
           [ :database ],
           [ :address ],
-          [ :target ]
-        ]
+          [ :target ],
+        ],
       ],
       [
         /^(host\S*)\s+to\s+(\S+)\s+on\s+(\S+)\s+from\s+(\S+)$/,
@@ -120,14 +120,14 @@ Puppet::Type.newtype(:pg_hba) do
           [ :user ],
           [ :database ],
           [ :address ],
-        ]
+        ],
       ],
       [
         /(.*)/,
         [
           [ :name ],
-        ]
-      ]
+        ],
+      ],
     ]
   end
 
