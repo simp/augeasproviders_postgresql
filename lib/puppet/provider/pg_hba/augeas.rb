@@ -101,6 +101,6 @@ Puppet::Type.type(:pg_hba).provide(:augeas, :parent => Puppet::Type.type(:augeas
     :label    => 'method/option',
     :default  => :undef,
     :type     => :hash,
-    :sublabel => 'value'
+    :sublabel => 'value',
   )
 end

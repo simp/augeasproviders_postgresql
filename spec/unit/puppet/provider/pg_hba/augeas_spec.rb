@@ -31,7 +31,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to all on all",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse(target, "Pg_hba.lns", '
@@ -54,7 +54,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to all on all",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse(target, "Pg_hba.lns", '
@@ -73,14 +73,14 @@ describe provider_class, :if => valid_lens? do
             :name     => "local to all on all",
             :method   => "md5",
             :target   => target,
-            :provider => "augeas"
+            :provider => "augeas",
           ),
           Puppet::Type.type(:pg_hba).new(
             :name     => "host to all on all from 192.168.0.1",
             :method   => "md5",
             :target   => target,
-            :provider => "augeas"
-          )
+            :provider => "augeas",
+          ),
         )
 
         aug_open(target, "Pg_hba.lns") do |aug|
@@ -93,7 +93,7 @@ describe provider_class, :if => valid_lens? do
           apply!(Puppet::Type.type(:pg_hba).new(
             :name     => "local to all on all in #{target}",
             :method   => "md5",
-            :provider => "augeas"
+            :provider => "augeas",
           ))
 
           augparse(target, "Pg_hba.lns", '
@@ -112,7 +112,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "A local entry",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse(target, "Pg_hba.lns", '
@@ -135,7 +135,7 @@ describe provider_class, :if => valid_lens? do
             'ldapsuffix' => ',ou=people,dc=example,dc=com',
           },
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         # Options can be in various orders (hash)
@@ -151,7 +151,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "host to all on all from 1.2.3.4",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse(target, "Pg_hba.lns", '
@@ -170,7 +170,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to +titi,@toto on db1,db2",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse(target, "Pg_hba.lns", '
@@ -192,7 +192,7 @@ describe provider_class, :if => valid_lens? do
           :database => ['db1', 'db2'],
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse(target, "Pg_hba.lns", '
@@ -217,7 +217,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to all on mydb",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "*[database='mydb']", '
@@ -236,7 +236,7 @@ describe provider_class, :if => valid_lens? do
           :position => "after *[type][1]",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./2", '
@@ -255,7 +255,7 @@ describe provider_class, :if => valid_lens? do
           :position => "before *[type][1]",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./1", '
@@ -274,7 +274,7 @@ describe provider_class, :if => valid_lens? do
           :position => "before first entry",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./1", '
@@ -293,7 +293,7 @@ describe provider_class, :if => valid_lens? do
           :position => "before last entry",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./16", '
@@ -312,7 +312,7 @@ describe provider_class, :if => valid_lens? do
           :position => "after first host",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./3", '
@@ -331,7 +331,7 @@ describe provider_class, :if => valid_lens? do
           :position => "before last anyhost",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./11", '
@@ -349,7 +349,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to all on all",
           :ensure   => "absent",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         aug_open(target, "Pg_hba.lns") do |aug|
@@ -362,7 +362,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to all on all",
           :method   => "bar",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "*[type='local' and user='all' and database='all']", '
@@ -383,7 +383,7 @@ describe provider_class, :if => valid_lens? do
             'sameuser' => :undef,
           },
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "*[type='local' and user='all' and database='all']", '
@@ -404,7 +404,7 @@ describe provider_class, :if => valid_lens? do
           :method   => "trust",
           :position => "after last entry",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./16", '
@@ -424,7 +424,7 @@ describe provider_class, :if => valid_lens? do
           :method   => "md5",
           :position => "before first host",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "./2", '
@@ -442,7 +442,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "host to all on all from 1.2.3.4",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "*[type='host' and user='all' and database='all' and address='1.2.3.4']", '
@@ -461,7 +461,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "host to all on all from 127.0.0.1/32",
           :ensure   => "absent",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         aug_open(target, "Pg_hba.lns") do |aug|
@@ -474,7 +474,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "host to all on all from 127.0.0.1/32",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         augparse_filter(target, "Pg_hba.lns", "*[type='host' and user='all' and database='all' and address='127.0.0.1/32']", '
@@ -497,7 +497,7 @@ describe provider_class, :if => valid_lens? do
             'map'      => 'omicron',
           },
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         aug_open(target, "Pg_hba.lns") do |aug|
@@ -514,7 +514,7 @@ describe provider_class, :if => valid_lens? do
             'sameuser' => :undef,
           },
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         aug_open(target, "Pg_hba.lns") do |aug|
@@ -533,7 +533,7 @@ describe provider_class, :if => valid_lens? do
           :name     => "local to all on all",
           :method   => "md5",
           :target   => target,
-          :provider => "augeas"
+          :provider => "augeas",
         ))
 
         expect(txn.any_failed?).not_to eq(nil)
